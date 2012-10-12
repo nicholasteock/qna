@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Display questions page
+{% endblock %}
+
+{% block content %}
+	{% if list %}
+		{% for Question in list %}
+			<p>
+			{{Question.title}}
+			{{Question.subject}}
+			{{Question.content}}
+			{{Question.ask_date}}
+			<a href="{% url 'answer.views.display_answers' Question.id %}">View answers</a>
+			</p>
+		
+			{% if not forloop.last %}
+			<br/>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		QUESTION BANK IS EMPTY
+	{% endif %}
+	
+	TESTING! THIS SHOULD SHOW AS THE END OF THE DISPLAY QUESTION PAGE
+{% endblock %}
+

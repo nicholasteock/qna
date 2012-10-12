@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Answers Page
+{% endblock %}
+
+{% block content %}
+	{% if ans_list %}
+		{% for Answer in ans_list %}
+		<p>
+			{{ Answer.content }}
+		</p>
+			{% if not forloop.last %}
+			<br />
+			{% endif %}
+		{% endfor %}
+	{% else %}
+			THERE ARE NO ANSWERS AT THIS POINT. <br />
+	{% endif %}
+	<a href="{% url answer_question %}">Give an answer</a>
+	<a href="{% url display_questions %}">Back to question list</a>
+			TESTING. THIS SHOULD BE AT THE END OF THE VIEW ANSWERS PAGE.
+{% endblock %}
+
